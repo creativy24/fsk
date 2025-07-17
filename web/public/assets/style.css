@@ -325,3 +325,7 @@ body.dashboard-body {
   font-size: 0.95rem;
   color: #333;
 }
+
+input[type="password"] {
+  -webkit-text-security: disc;
+}
