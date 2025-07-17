@@ -12,146 +12,192 @@
     }
 
     header {
-      background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      padding: 1rem;
+      background-color: rgba(47, 109, 56, 0.7);
+      backdrop-filter: blur(6px);
+      padding: 1rem 2rem;
       text-align: center;
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     header h1 {
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      color: #2c3e50;
-    }
-
-    body.dark header h1 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
       color: white;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
 
     nav {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 0.5rem 1rem;
       display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      padding: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
     }
 
     .menu {
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 10px;
-      padding: 1rem;
-      transition: background 0.3s ease;
+      position: relative;
     }
 
-    .menu h2 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
+    .menu > button {
+      background: transparent;
+      border: none;
+      font-size: 1rem;
+      font-weight: bold;
       color: #2c3e50;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background 0.3s;
     }
 
-    body.dark .menu h2 {
-      color: white;
-    }
-
-    .menu ul {
-      list-style: none;
-      padding-left: 1rem;
-    }
-
-    .menu ul li {
-      margin: 0.25rem 0;
-    }
-
-    .menu ul li a {
-      text-decoration: none;
-      color: #2c3e50;
-      transition: color 0.2s;
-    }
-
-    body.dark .menu ul li a {
-      color: #f0f0f0;
-    }
-
-    .menu ul li a:hover {
+    .menu > button:hover,
+    .menu:hover > button {
+      background-color: rgba(46, 204, 113, 0.2);
       color: #27ae60;
     }
 
-    @media (min-width: 768px) {
+    body.dark .menu > button {
+      color: #eee;
+    }
+
+    .submenu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: none;
+      flex-direction: column;
+      min-width: 180px;
+      z-index: 100;
+    }
+
+    .submenu a {
+      padding: 0.6rem 1rem;
+      text-decoration: none;
+      color: #2c3e50;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+
+    .submenu a:hover {
+      background-color: #eafaf1;
+      color: #27ae60;
+    }
+
+    .menu:hover .submenu {
+      display: flex;
+    }
+
+    body.dark .submenu {
+      background: rgba(40, 40, 40, 0.95);
+    }
+
+    body.dark .submenu a {
+      color: #eee;
+    }
+
+    body.dark .submenu a:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+      color: #2ecc71;
+    }
+
+    @media (max-width: 600px) {
       nav {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+      }
+      .submenu {
+        position: static;
+        display: none;
+        width: 100%;
+      }
+      .menu.active .submenu {
+        display: flex;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Dashboard Forum Silaturahmi Keturunan Abdul Kader</h1>
+    <h1>Forum Silaturahmi Keturunan Abdul Kader</h1>
   </header>
 
   <nav>
     <div class="menu">
-      <h2>Tentang FSK</h2>
-      <ul>
-        <li><a href="#">Sejarah FSK</a></li>
-        <li><a href="#">Visi & Misi</a></li>
-        <li><a href="#">Pengurus FSK</a></li>
-        <li><a href="#">Peraturan</a></li>
-      </ul>
+      <button>Tentang FSK</button>
+      <div class="submenu">
+        <a href="#">Sejarah FSK</a>
+        <a href="#">Visi & Misi</a>
+        <a href="#">Pengurus FSK</a>
+        <a href="#">Peraturan</a>
+      </div>
     </div>
 
     <div class="menu">
-      <h2>Pohon Keluarga</h2>
-      <ul>
-        <li><a href="#">Lihat Pohon Keluarga</a></li>
-      </ul>
+      <button>Pohon Keluarga</button>
+      <div class="submenu">
+        <a href="#">Lihat Pohon Keluarga</a>
+      </div>
     </div>
 
     <div class="menu">
-      <h2>Anggota FSK</h2>
-      <ul>
-        <li><a href="#">Data Anggota</a></li>
-      </ul>
+      <button>Anggota FSK</button>
+      <div class="submenu">
+        <a href="#">Data Anggota</a>
+      </div>
     </div>
 
     <div class="menu">
-      <h2>Laporan Keuangan</h2>
-      <ul>
-        <li><a href="#">Iuran Wajib</a></li>
-        <li><a href="#">Dana Sehat</a></li>
-        <li><a href="#">Dana Duka</a></li>
-      </ul>
+      <button>Laporan Keuangan</button>
+      <div class="submenu">
+        <a href="#">Iuran Wajib</a>
+        <a href="#">Dana Sehat</a>
+        <a href="#">Dana Duka</a>
+      </div>
     </div>
 
     <div class="menu">
-      <h2>Donasi</h2>
-      <ul>
-        <li><a href="#">Data Donasi</a></li>
-      </ul>
+      <button>Donasi</button>
+      <div class="submenu">
+        <a href="#">Data Donasi</a>
+      </div>
     </div>
 
     <div class="menu">
-      <h2>Agenda Kegiatan</h2>
-      <ul>
-        <li><a href="#">Pertemuan Rutin</a></li>
-        <li><a href="#">Kegiatan Lainnya</a></li>
-      </ul>
+      <button>Agenda Kegiatan</button>
+      <div class="submenu">
+        <a href="#">Pertemuan Rutin</a>
+        <a href="#">Kegiatan Lainnya</a>
+      </div>
     </div>
 
     <div class="menu">
-      <h2>Owner</h2>
-      <ul>
-        <li><a href="#">Pengaturan Peran</a></li>
-      </ul>
+      <button>Owner</button>
+      <div class="submenu">
+        <a href="#">Pengaturan Peran</a>
+      </div>
     </div>
   </nav>
 
   <script>
+    // Dark mode tetap otomatis
     const hour = new Date().getHours();
     if (hour >= 18 || hour <= 5) {
       document.body.classList.add('dark');
     }
+
+    // Tambahkan toggle aktif untuk mobile
+    document.querySelectorAll('.menu > button').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        if (window.innerWidth <= 600) {
+          const parent = btn.parentElement;
+          parent.classList.toggle('active');
+        }
+      });
+    });
   </script>
 </body>
 </html>
