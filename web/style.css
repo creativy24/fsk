@@ -1,4 +1,6 @@
-/* style.css */
+/* style.css (Gabungan dari style.css dan dashboard/style.css) */
+
+/* ========== GLOBAL & RESET STYLE ========== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,14 +8,29 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* ========== BASE BODY STYLE (Dari dashboard/style.css sebagai default untuk aplikasi) ========== */
+/* Ini akan menimpa body dari style.css karena ditempatkan setelahnya jika ada konflik */
 body {
-  background: linear-gradient(to bottom right, rgba(102, 160, 91, 0.45), rgba(47, 109, 56, 0.5));
+  margin: 0; /* Pastikan margin 0 untuk layout penuh */
+  padding: 0; /* Pastikan padding 0 untuk layout penuh */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #a8d5ba, #dbeed8); /* Latar belakang dashboard */
+  color: #1a1a1a;
+}
+
+/* ========== LOGIN PAGE STYLE (Dari style.css) ========== */
+/* Gaya ini akan diterapkan hanya jika body tidak memiliki kelas 'dark' dan jika tidak ada elemen dengan properti konflik yang menimpa */
+body:not(.dark) { /* Hanya terapkan ini jika tidak ada mode gelap */
+  /* Reset properti body untuk halaman login jika sebelumnya diatur oleh gaya dashboard */
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   padding: 1rem;
+  background: linear-gradient(to bottom right, rgba(102, 160, 91, 0.45), rgba(47, 109, 56, 0.5)); /* Latar belakang login */
+  color: initial; /* Reset warna teks ke default */
 }
+
 
 body.dark {
   background: linear-gradient(to bottom right, rgba(20, 20, 20, 0.95), rgba(40, 40, 40, 0.95));
@@ -48,24 +65,19 @@ body.dark .forgot-password a {
   border-radius: 16px;
   width: 100%;
   max-width: 360px;
-
   border: 1px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-
   box-shadow:
-    4px 4px 12px rgba(0, 0, 0, 0.25),   /* bayangan bawah kanan */
-    -4px -4px 12px rgba(255, 255, 255, 0.1), /* highlight atas kiri */
-    inset 1px 1px 3px rgba(255,255,255,0.2), /* inner light */
-    inset -1px -1px 2px rgba(0,0,0,0.05);    /* inner shadow */
-
+    4px 4px 12px rgba(0, 0, 0, 0.25),
+    -4px -4px 12px rgba(255, 255, 255, 0.1),
+    inset 1px 1px 3px rgba(255,255,255,0.2),
+    inset -1px -1px 2px rgba(0,0,0,0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
-
-
 
 .logo {
   width: 80px;
@@ -221,4 +233,119 @@ body.dark .brand-footer {
   .brand-footer {
     font-size: 0.75rem;
   }
+}
+
+/* ========== DASHBOARD SPECIFIC STYLE (Dari dashboard/style.css) ========== */
+/* Pastikan ini ditempatkan setelah gaya global dan login jika ada properti yang mungkin menimpa */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+header {
+  background-color: #4b8b50;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ========== DASHBOARD TITLE ========== */
+.dashboard-header {
+  background-color: #4e9352; /* hijau solid */
+  padding: 2rem 1rem;
+  border-radius: 20px;
+  margin: 1rem auto;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-title {
+  color: white;
+  font-weight: bold;
+  font-size: 1.8em;
+  line-height: 1.4;
+}
+
+.judul-atas,
+.judul-bawah {
+  font-size: 1.2em;
+}
+
+.judul-fsk {
+  font-size: 1em;
+  font-style: italic;
+}
+
+/* ========== DASHBOARD MENU ========== */
+.dashboard-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.dashboard-menu .menu {
+  position: relative;
+}
+
+.dashboard-menu a {
+  display: block;
+  background-color: #f1fdf5;
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #1b1b1b;
+  transition: 0.3s;
+}
+
+.dashboard-menu a:hover {
+  background-color: #cde9d8;
+}
+
+/* ========== SUBMENU STYLE (DROPDOWN) ========== */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 150px;
+  background-color: #d9f2d9;
+  padding: 0.5rem 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.submenu li {
+  margin: 0;
+}
+
+.submenu a {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #1a1a1a;
+  background-color: transparent;
+}
+
+.submenu a:hover {
+  background-color: #b6e0b6;
+}
+
+.menu:hover .submenu {
+  display: block;
+}
+
+/* ========== MAIN CONTENT ========== */
+main {
+  margin-top: 2rem;
+  text-align: center;
 }
