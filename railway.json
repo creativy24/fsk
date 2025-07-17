@@ -1,7 +1,8 @@
 {
   "build": {
-    "env": {},
-    "buildCommand": "",
-    "startCommand": "npx serve"
-  }
+    "env": {
+      "NODE_ENV": "production"
+    }
+  },
+  "startCommand": "npm start"
 }
