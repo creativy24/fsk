@@ -3,18 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Login FSK</title>
-  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="/assets/style.css" />
 </head>
 <body>
   <div class="login-container">
-    <img src="img/logo_FSK.png" alt="Logo Forum FSK" class="logo" />
+    <img src="/img/logo_FSK.png" alt="Logo Forum FSK" class="logo" />
 
-    <form id="login-form" autocomplete="off">
+    <form id="login-form" action="/login" method="POST" autocomplete="off">
       <h2>Selamat Datang</h2>
 
       <label for="password" class="visually-hidden">Password</label>
-      <input type="password" id="password" placeholder="Masukkan Password" required autocomplete="off" />
+      <input
+        type="password"
+        id="password"
+        placeholder="Masukkan Password"
+        required
+        autocomplete="new-password"
+      />
 
       <div class="forgot-password">
         <a href="mailto:admin@fsk.or.id?subject=Lupa%20Password">Lupa Password?</a>
@@ -23,8 +31,8 @@
       <button type="submit">Masuk</button>
 
       <p class="brand-footer">
-        Forum Silaturahmi Keturunan Abdul Kader<br>
-        Berdiri 21 April 2024 - <span id="tanggal-sekarang"></span><br>
+        Forum Silaturahmi Keturunan Abdul Kader<br />
+        Berdiri 21 April 2024 - <span id="tanggal-sekarang"></span><br />
         <span id="jumlah-hari"></span>
       </p>
 
@@ -32,6 +40,6 @@
     </form>
   </div>
 
-  <script src="assets/script.js"></script>
+  <script src="/assets/script.js"></script>
 </body>
 </html>
