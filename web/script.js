@@ -1,3 +1,4 @@
+// script.js
 const form = document.getElementById('login-form');
 const passwordInput = document.getElementById('password');
 const errorMsg = document.getElementById('error-msg');
