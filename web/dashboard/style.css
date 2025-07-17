@@ -1,3 +1,4 @@
+/* ========== GLOBAL STYLE ========== */
 body {
   margin: 0;
   padding: 0;
@@ -22,36 +23,57 @@ header {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.nav-menu {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
-  background-color: #e6f2e6;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+/* ========== DASHBOARD TITLE ========== */
+.dashboard-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.8em;
+  color: white;
+  line-height: 1.4;
 }
 
-.nav-menu > li {
+.judul-atas {
+  font-size: 1.2em;
+}
+
+.judul-fsk {
+  font-size: 1em;
+  font-style: italic;
+}
+
+.judul-bawah {
+  font-size: 1.2em;
+}
+
+/* ========== DASHBOARD MENU ========== */
+.dashboard-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.dashboard-menu .menu {
   position: relative;
-  margin: 0.5rem;
 }
 
-.nav-menu > li > a {
+.dashboard-menu a {
   display: block;
-  padding: 0.5rem 1rem;
+  background-color: #f1fdf5;
+  padding: 10px;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
-  color: #1a1a1a;
+  color: #1b1b1b;
+  transition: 0.3s;
 }
 
-.nav-menu > li:hover > a {
-  background-color: #cce5cc;
-  border-radius: 4px;
+.dashboard-menu a:hover {
+  background-color: #cde9d8;
 }
 
+/* ========== SUBMENU STYLE (DROPDOWN) ========== */
 .submenu {
   display: none;
   position: absolute;
@@ -60,7 +82,7 @@ header {
   min-width: 150px;
   background-color: #d9f2d9;
   padding: 0.5rem 0;
-  border-radius: 4px;
+  border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   z-index: 1000;
 }
@@ -74,6 +96,7 @@ header {
   padding: 0.5rem 1rem;
   text-decoration: none;
   color: #1a1a1a;
+  background-color: transparent;
 }
 
 .submenu a:hover {
@@ -84,6 +107,7 @@ header {
   display: block;
 }
 
+/* ========== MAIN CONTENT ========== */
 main {
   margin-top: 2rem;
   text-align: center;
