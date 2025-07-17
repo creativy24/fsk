@@ -6,6 +6,7 @@ const helmet = require('helmet'); // ✅ Tambahkan Helmet.js untuk keamanan head
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+app.set('trust proxy', 1);
 
 // Middleware: Keamanan tambahan
 app.use(helmet());
