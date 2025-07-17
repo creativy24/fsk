@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #a8d5ba, #dbeed8);
+  color: #1a1a1a;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+header {
+  background-color: #4b8b50;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  background-color: #e6f2e6;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.nav-menu > li {
+  position: relative;
+  margin: 0.5rem;
+}
+
+.nav-menu > li > a {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+.nav-menu > li:hover > a {
+  background-color: #cce5cc;
+  border-radius: 4px;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 150px;
+  background-color: #d9f2d9;
+  padding: 0.5rem 0;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.submenu li {
+  margin: 0;
+}
+
+.submenu a {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+.submenu a:hover {
+  background-color: #b6e0b6;
+}
+
+.menu:hover .submenu {
+  display: block;
+}
+
+main {
+  margin-top: 2rem;
+  text-align: center;
+}
