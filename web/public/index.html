@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login FSK</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="login-container">
+    <img src="img/logo_FSK.png" alt="Logo Forum FSK" class="logo" />
+
+    <form id="login-form" autocomplete="off">
+      <h2>Selamat Datang</h2>
+
+      <label for="password" class="visually-hidden">Password</label>
+      <input type="password" id="password" placeholder="Masukkan Password" required autocomplete="off" />
+
+      <div class="forgot-password">
+        <a href="mailto:admin@fsk.or.id?subject=Lupa%20Password">Lupa Password?</a>
+      </div>
+
+      <button type="submit">Masuk</button>
+
+      <p class="brand-footer">
+        Forum Silaturahmi Keturunan Abdul Kader<br>
+        Berdiri 21 April 2024 - <span id="tanggal-sekarang"></span><br>
+        <span id="jumlah-hari"></span>
+      </p>
+
+      <p id="error-msg"></p>
+    </form>
+  </div>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
